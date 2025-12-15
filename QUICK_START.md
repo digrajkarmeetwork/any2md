@@ -1,117 +1,70 @@
-# Quick Start - Web UI
+# Quick Start Guide
 
-## Step 1: Install Dependencies
-
-First, make sure you have Python 3.11+ installed. Then install the required dependencies:
+## Installation
 
 ```bash
-pip install fastapi uvicorn python-multipart
+# Install with web UI support
+pip install ".[web]"
+
+# Or install all dependencies manually
+pip install fastapi uvicorn python-multipart mammoth pymupdf openpyxl pyyaml typer rich Pillow
 ```
 
-Or install all dependencies for the full package:
+## Start the Web UI
 
+**Option 1: Using startup script**
 ```bash
-pip install -e ".[web]"
-```
-
-## Step 2: Start the Server
-
-### Option A: Using the startup script (Easiest)
-
-**Windows:**
-```bash
-# Double-click start_web_ui.bat
-# Or run in terminal:
+# Windows
 start_web_ui.bat
+
+# macOS/Linux
+python start_web_ui.py
 ```
 
-**macOS/Linux:**
-```bash
-python3 start_web_ui.py
-```
-
-### Option B: Using the CLI (After installation)
-
+**Option 2: Using CLI**
 ```bash
 doc2mkdocs serve
 ```
 
-### Option C: Direct Python execution
+Then open **http://127.0.0.1:8000** in your browser.
+
+## Using the Web Interface
+
+1. Drag and drop files (DOCX, PDF, XLSX) onto the upload area
+2. Wait for validation (green ✓ = ready)
+3. Click **"Convert Files"**
+4. Review quality scores and warnings
+5. Click **"Download ZIP"** to get your converted Markdown files
+
+## Using the CLI
 
 ```bash
-python3 -c "from src.doc2mkdocs.web import create_app; import uvicorn; uvicorn.run(create_app(), host='127.0.0.1', port=8000)"
+# Convert a single file
+doc2mkdocs convert document.docx --out docs/
+
+# Convert a directory
+doc2mkdocs convert ./source-docs --out docs/
+
+# With options
+doc2mkdocs convert ./source-docs --out docs/ --mkdocs-nav --pdf-ocr auto
 ```
-
-## Step 3: Open Your Browser
-
-Navigate to: **http://127.0.0.1:8000**
-
-You should see the doc2mkdocs web interface!
-
-## Step 4: Convert Documents
-
-1. **Drag and drop** files onto the upload area (or click to browse)
-2. Wait for files to be **validated** (green checkmark = valid)
-3. Click **"Convert Files"** button
-4. Watch the **progress bar** as files are converted
-5. Review the **conversion report** with quality scores
-6. Click **"Download ZIP"** to get your converted files
-
-## What You'll Get
-
-The downloaded ZIP file contains:
-- ✅ Converted Markdown files (`.md`)
-- ✅ Extracted images in `assets/` folder
-- ✅ `conversion-report.json` with detailed results
 
 ## Troubleshooting
 
-### "Module not found" errors
-
-Install dependencies:
+**Module not found:**
 ```bash
-pip install fastapi uvicorn python-multipart mammoth pymupdf openpyxl pyyaml typer rich
+pip install fastapi uvicorn python-multipart Pillow
 ```
 
-### "Address already in use"
-
-Another service is using port 8000. Try a different port:
+**Port already in use:**
 ```bash
-# Edit start_web_ui.py and change port=8000 to port=8001
-# Or use the CLI:
 doc2mkdocs serve --port 8001
 ```
 
-### Python not found
-
-**Windows:**
-1. Download Python from https://www.python.org/downloads/
-2. During installation, check "Add Python to PATH"
-3. Restart your terminal
-
-**macOS:**
-```bash
-brew install python3
-```
-
-**Linux:**
-```bash
-sudo apt-get install python3 python3-pip
-```
-
-## Next Steps
-
-- Read the full [Web UI Guide](WEB_UI_GUIDE.md)
-- Check out the [API documentation](WEB_UI_GUIDE.md#api-endpoints)
-- See the [visual demo](docs-example/web-ui-demo.md)
-
-## Need Help?
-
-- Check [WEB_UI_GUIDE.md](WEB_UI_GUIDE.md) for detailed documentation
-- Review [TROUBLESHOOTING.md](README.md#troubleshooting) for common issues
-- Open an issue on GitHub
+**Python not found (Windows):**
+Download from https://www.python.org/downloads/ and check "Add Python to PATH" during installation.
 
 ---
 
-**Enjoy converting your documents! 🚀**
+For more details, see [README.md](README.md)
 
