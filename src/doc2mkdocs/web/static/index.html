@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doc2mkdocs - Convert Documents to MkDocs Markdown</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 doc2mkdocs</h1>
+            <p class="subtitle">Convert DOCX, PDF, and XLSX files to MkDocs-ready Markdown</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section id="upload-section" class="section">
+                <div id="drop-zone" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                        </svg>
+                        <h2>Drag & Drop Files Here</h2>
+                        <p>or click to browse</p>
+                        <p class="supported-formats">Supported: DOCX, PDF, XLSX</p>
+                        <input type="file" id="file-input" multiple accept=".docx,.doc,.pdf,.xlsx,.xls" hidden>
+                    </div>
+                </div>
+
+                <div id="file-list" class="file-list"></div>
+
+                <button id="convert-btn" class="btn btn-primary" disabled>
+                    Convert Files
+                </button>
+            </section>
+
+            <!-- Processing Section -->
+            <section id="processing-section" class="section hidden">
+                <div class="processing-card">
+                    <div class="spinner"></div>
+                    <h2>Converting Documents...</h2>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <p id="progress-text" class="progress-text">0%</p>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section" class="section hidden">
+                <div class="results-card">
+                    <div class="results-header">
+                        <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h2>Conversion Complete!</h2>
+                    </div>
+
+                    <div id="report-summary" class="report-summary"></div>
+
+                    <div id="file-reports" class="file-reports"></div>
+
+                    <div class="results-actions">
+                        <button id="download-btn" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            Download ZIP
+                        </button>
+                        <button id="new-conversion-btn" class="btn btn-secondary">
+                            Convert More Files
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="error-section" class="section hidden">
+                <div class="error-card">
+                    <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h2>Conversion Failed</h2>
+                    <p id="error-message" class="error-message"></p>
+                    <button id="retry-btn" class="btn btn-secondary">Try Again</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                <a href="https://github.com/yourusername/doc2mkdocs" target="_blank">GitHub</a> •
+                <a href="https://github.com/yourusername/doc2mkdocs#readme" target="_blank">Documentation</a> •
+                Maximum file size: 50MB
+            </p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
+
