@@ -1,6 +1,19 @@
 # Deploying doc2mkdocs to Vercel
 
-This guide will help you deploy the doc2mkdocs web UI to Vercel.
+This guide will help you deploy the doc2mkdocs landing page and API to Vercel.
+
+## Important Note
+
+⚠️ **Vercel Serverless Limitations:**
+
+Due to Vercel's serverless architecture (10-second timeout on free tier), **full document conversion is NOT available** in the deployed version. The Vercel deployment provides:
+
+- ✅ Landing page with project information
+- ✅ API endpoints for validation
+- ✅ Links to GitHub and documentation
+- ❌ Full document conversion (use CLI locally instead)
+
+**For full conversion capabilities, users should install the CLI tool locally.**
 
 ## Prerequisites
 
@@ -22,12 +35,13 @@ When configuring your project in Vercel, use these settings:
 
 **Build Command:**
 ```bash
-pip install -r requirements.txt
+# Leave empty or use:
+echo "No build required"
 ```
 
 **Output Directory:**
 ```
-.
+public
 ```
 
 **Install Command:**
