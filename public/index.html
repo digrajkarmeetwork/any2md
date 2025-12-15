@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>doc2mkdocs - Document to Markdown Converter</title>
+    <title>any2md - Convert Any Document to Markdown</title>
     <style>
         * {
             margin: 0;
@@ -231,23 +231,30 @@
     <div class="container">
         <div class="header">
             <div class="logo">📄</div>
-            <h1>doc2mkdocs</h1>
-            <p class="subtitle">Convert DOCX, PDF, and Excel files to MkDocs-ready Markdown</p>
+            <h1>any2md</h1>
+            <p class="subtitle">Convert any document to Markdown - DOCX, PDF, Excel and more</p>
         </div>
 
         <div class="download-section">
-            <h2>Download CLI Tool</h2>
-            <p>Get the full-featured command-line tool for unlimited conversions</p>
+            <h2>Download for Windows</h2>
+            <p>Get the easy-to-use Windows application - no installation required!</p>
             <div class="download-buttons">
-                <a href="https://github.com/digrajkarmeetwork/any2md/archive/refs/heads/main.zip" class="btn">
-                    <span class="btn-icon">💾</span>
-                    Download Source
+                <a href="https://github.com/digrajkarmeetwork/any2md/releases/latest/download/any2md.exe" class="btn" id="download-exe">
+                    <span class="btn-icon">🪟</span>
+                    Download Windows App
+                </a>
+                <a href="https://github.com/digrajkarmeetwork/any2md/releases" class="btn" target="_blank">
+                    <span class="btn-icon">📦</span>
+                    All Releases
                 </a>
                 <a href="https://github.com/digrajkarmeetwork/any2md" class="btn" target="_blank">
                     <span class="btn-icon">⭐</span>
                     View on GitHub
                 </a>
             </div>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                ✨ Just download and run - no Python installation needed!
+            </p>
         </div>
 
         <div class="features">
@@ -284,22 +291,41 @@
         </div>
 
         <div class="install-section">
-            <h3>Quick Installation</h3>
+            <h3>🪟 How to Use the Windows App</h3>
+            <div style="padding: 20px; background: #0f0f23; border-radius: 10px; margin: 15px 0;">
+                <p style="margin-bottom: 15px; color: #a0a0a0;">
+                    <strong style="color: #667eea;">Step 1:</strong> Download <code style="background: #1a1a2e; padding: 3px 8px; border-radius: 4px;">any2md.exe</code>
+                </p>
+                <p style="margin-bottom: 15px; color: #a0a0a0;">
+                    <strong style="color: #667eea;">Step 2:</strong> Double-click to run (no installation needed!)
+                </p>
+                <p style="margin-bottom: 15px; color: #a0a0a0;">
+                    <strong style="color: #667eea;">Step 3:</strong> Add your DOCX, PDF, or Excel files
+                </p>
+                <p style="margin-bottom: 15px; color: #a0a0a0;">
+                    <strong style="color: #667eea;">Step 4:</strong> Choose output folder and click Convert
+                </p>
+                <p style="color: #a0a0a0;">
+                    <strong style="color: #667eea;">Step 5:</strong> Get your Markdown files! 🎉
+                </p>
+            </div>
+
+            <h3 style="margin-top: 30px;">💻 For Developers: CLI Installation</h3>
             <div class="code-block">
                 <code id="install-cmd">pip install git+https://github.com/digrajkarmeetwork/any2md.git</code>
             </div>
             <button class="copy-btn" onclick="copyToClipboard('install-cmd')">Copy Command</button>
 
-            <h3 style="margin-top: 30px;">Usage Examples</h3>
+            <h3 style="margin-top: 30px;">CLI Usage Examples</h3>
             <div class="code-block">
                 <code># Convert a single file
-doc2mkdocs convert document.docx --out docs/
+any2md convert document.docx --out docs/
 
 # Convert a directory
-doc2mkdocs convert ./source-docs --out docs/
+any2md convert ./source-docs --out docs/
 
 # Start local web UI
-doc2mkdocs serve</code>
+any2md serve</code>
             </div>
         </div>
 

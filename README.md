@@ -1,139 +1,71 @@
-# doc2mkdocs
+# any2md
 
-Convert documentation files (DOCX, PDF, XLSX) into MkDocs-ready Markdown with a single command or web interface.
+Convert any document (DOCX, PDF, XLSX) to Markdown with ease.
 
 ## Features
 
-- 🚀 **CLI & Web UI**: Command-line tool or drag-and-drop web interface
+- 🪟 **Windows GUI App**: Easy-to-use desktop application (no installation required)
+- 💻 **CLI Tool**: Command-line interface for developers
 - 📄 **Multiple Formats**: DOCX, PDF, and Excel (XLSX) support
 - 🖼️ **Smart Assets**: Automatic image extraction and organization
-- 📊 **Quality Reports**: Detailed conversion reports with quality scores
-- 🔗 **Link Rewriting**: Automatic internal link conversion for MkDocs
-- 🎯 **MkDocs-Ready**: Proper structure, sanitized filenames, YAML front matter
-- 🔍 **OCR Support**: Optional OCR for scanned PDFs (Tesseract)
+- 🔗 **Link Rewriting**: Automatic internal link conversion
 - 🌐 **Cross-Platform**: Windows, macOS, and Linux
 
-## Quick Start
+## Download
 
-### Installation
+### Windows App (Recommended)
+
+Download the standalone executable - no Python installation needed!
+
+👉 **[Download any2md.exe](https://github.com/digrajkarmeetwork/any2md/releases/latest/download/any2md.exe)**
+
+Just download and run - it's that simple!
+
+### CLI Installation
 
 ```bash
-# Basic installation
-pip install .
-
-# With web UI
-pip install ".[web]"
-
-# Development mode
-pip install -e ".[dev,web]"
+pip install git+https://github.com/digrajkarmeetwork/any2md.git
 ```
 
-### CLI Usage
+## Usage
+
+### Windows GUI App
+
+1. Download `any2md.exe`
+2. Double-click to run
+3. Add your files (DOCX, PDF, Excel)
+4. Choose output folder
+5. Click Convert!
+
+### CLI
 
 ```bash
 # Convert a single file
-doc2mkdocs convert document.docx --out docs/
+any2md convert document.docx --out docs/
 
 # Convert a directory
-doc2mkdocs convert ./source-docs --out docs/ --mkdocs-nav
-
-# With custom options
-doc2mkdocs convert ./source-docs --out docs/ --pdf-ocr auto --overwrite
+any2md convert ./source-docs --out docs/
 ```
 
-### Web UI
+## Building the Executable
+
+To build the Windows executable yourself:
 
 ```bash
-# Start the web server
-doc2mkdocs serve
+# Install PyInstaller
+pip install pyinstaller
 
-# Or use the startup script
-python start_web_ui.py
-```
+# Build
+pyinstaller any2md.spec
 
-Then open **http://127.0.0.1:8000** in your browser and drag-and-drop files to convert.
-
-## CLI Reference
-
-### Convert Command
-
-```
-doc2mkdocs convert <input_path> [OPTIONS]
-```
-
-**Arguments:**
-- `input_path`: File or directory to convert (required)
-
-**Options:**
-- `--out PATH`: Output directory (default: `docs`)
-- `--assets-dir PATH`: Assets directory (default: `<out>/assets`)
-- `--split-by-heading`: Split long documents by heading
-- `--excel-mode [sheet-per-page|single-page]`: Excel conversion mode (default: `sheet-per-page`)
-- `--pdf-ocr [off|auto|on]`: PDF OCR mode (default: `auto`)
-- `--overwrite`: Overwrite existing files
-- `--front-matter/--no-front-matter`: Add YAML front matter (default: enabled)
-- `--mkdocs-nav`: Generate mkdocs.yml nav snippet
-- `--report PATH`: Report output path (default: `<out>/conversion-report.json`)
-- `--log-level [debug|info|warning|error]`: Log level (default: `info`)
-
-### Serve Command
-
-```bash
-doc2mkdocs serve [--host HOST] [--port PORT] [--reload]
-```
-
-**Options:**
-- `--host`: Host to bind to (default: `127.0.0.1`)
-- `--port`: Port to bind to (default: `8000`)
-- `--reload`: Enable auto-reload for development
-
-## Output Structure
-
-```
-docs/
-├── assets/
-│   ├── document-name/
-│   │   ├── image-001.png
-│   │   └── image-002.png
-├── document-name.md
-├── conversion-report.json
-└── mkdocs-nav-snippet.yml  # if --mkdocs-nav used
-```
-
-## Optional Dependencies
-
-### Tesseract OCR (for scanned PDFs)
-
-**Windows:** Download from [UB-Mannheim/tesseract](https://github.com/UB-Mannheim/tesseract/wiki)
-**macOS:** `brew install tesseract`
-**Linux:** `sudo apt-get install tesseract-ocr`
-
-### Pandoc (for better DOCX conversion)
-
-**Windows:** `choco install pandoc`
-**macOS:** `brew install pandoc`
-**Linux:** `sudo apt-get install pandoc`
-
-## Development
-
-```bash
-# Install in development mode
-pip install -e ".[dev]"
-
-# Run tests
-pytest
-
-# Format and lint
-black src/ tests/
-ruff check src/ tests/
-mypy src/
+# Find the executable in dist/any2md.exe
 ```
 
 ## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-## Contributing
+## Author
 
-Contributions are welcome! See [CHANGELOG.md](CHANGELOG.md) for version history.
+Made with ❤️ by [Meet Digrajkar](https://github.com/digrajkarmeetwork)
 

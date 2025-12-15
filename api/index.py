@@ -49,7 +49,7 @@ SUPPORTED_EXTENSIONS = {".docx", ".doc", ".pdf", ".xlsx", ".xls"}
 async def root():
     """Serve the main page."""
     return {
-        "message": "doc2mkdocs Web UI API",
+        "message": "any2md API",
         "version": "1.0.0",
         "endpoints": {
             "validate": "POST /api/validate",
@@ -58,7 +58,7 @@ async def root():
             "download": "GET /api/download/{job_id}",
             "delete": "DELETE /api/job/{job_id}"
         },
-        "note": "This is a serverless deployment. For full web UI, visit the GitHub repository."
+        "note": "Download the Windows app from GitHub releases."
     }
 
 @app.get("/api/health")

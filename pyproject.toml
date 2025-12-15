@@ -3,16 +3,16 @@ requires = ["setuptools>=65.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "doc2mkdocs"
+name = "any2md"
 version = "1.0.0"
-description = "Convert documentation files (DOCX, PDF, XLSX) into MkDocs-ready Markdown"
+description = "Convert any document (DOCX, PDF, XLSX) to Markdown"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Meet Digrajkar", email = "digrajkarmeet.work@gmail.com"}
 ]
-keywords = ["documentation", "mkdocs", "markdown", "converter", "docx", "pdf", "xlsx"]
+keywords = ["markdown", "converter", "docx", "pdf", "xlsx", "any2md"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -56,19 +56,19 @@ watch = [
 ]
 
 [project.scripts]
-doc2mkdocs = "doc2mkdocs.cli:app"
+any2md = "any2md.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/doc2mkdocs"
-Documentation = "https://github.com/yourusername/doc2mkdocs#readme"
-Repository = "https://github.com/yourusername/doc2mkdocs"
-Issues = "https://github.com/yourusername/doc2mkdocs/issues"
+Homepage = "https://github.com/digrajkarmeetwork/any2md"
+Documentation = "https://github.com/digrajkarmeetwork/any2md#readme"
+Repository = "https://github.com/digrajkarmeetwork/any2md"
+Issues = "https://github.com/digrajkarmeetwork/any2md/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-doc2mkdocs = ["py.typed"]
+any2md = ["py.typed"]
 
 [tool.black]
 line-length = 100
@@ -94,7 +94,7 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = "-v --cov=src/doc2mkdocs --cov-report=term-missing --cov-report=html"
+addopts = "-v --cov=src/any2md --cov-report=term-missing --cov-report=html"
 
 [tool.coverage.run]
 source = ["src"]
